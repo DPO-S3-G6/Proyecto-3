@@ -1,7 +1,11 @@
 package Interfaz;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.Graphics;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.AbstractButton;
 import javax.swing.ImageIcon;
@@ -11,7 +15,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-public class VentanaPrincipal_1 extends JFrame
+public class VentanaPrincipal_1 extends JLabel
 {
 	private JButton btnAdminGeneral;
 	private JButton btnAdminLocal;
@@ -20,76 +24,106 @@ public class VentanaPrincipal_1 extends JFrame
 	
 	private JLabel etiquetaImagen;
 	
+	private MenuAdministradorGeneral adminGeneral;
+	private MenuAdministradorLocal adminLocal;
+	private MenuCliente cliente;
+	private MenuEmpleado empleado;
+	private static boolean condicion;
 	
-	public VentanaPrincipal_1()
+	
+	
+	
+	public VentanaPrincipal_1()      
 	{
 		
-		setSize(750, 600);
-		setTitle("BIENVENIDO");
-		setDefaultCloseOperation( EXIT_ON_CLOSE );
+		//setSize(750, 600);
+		setLayout(new BorderLayout());
 		
 		JPanel panelDerecha = new JPanel();
-		panelDerecha.setLayout(new BorderLayout());
+		add(panelDerecha, BorderLayout.EAST);
 		
-		
-		setLayout(new GridLayout(4,1));
+		panelDerecha.setLayout(new GridLayout(4,1));
 		
 		btnAdminGeneral = new JButton ("NOMBRE COMPLETO");
-	    add(btnAdminGeneral);
+		btnAdminGeneral.setPreferredSize(new Dimension (200,80));
+		btnAdminGeneral.setActionCommand("OPCION_1");
+		//btnAdminGeneral.addActionListener(ActionListener.class, this);
+		panelDerecha.add(btnAdminGeneral);
 
 	    btnAdminLocal = new JButton ("USUARIO");
-	    add(btnAdminLocal);
+	    panelDerecha.add(btnAdminLocal);
 
 	    btnCliente = new JButton ("CONTRASEÑA");
-	    add(btnCliente);
+	    panelDerecha.add(btnCliente);
 
 	    btnEmpleado = new JButton ("REGISTRARSE");
-	    add(btnEmpleado);
+	    panelDerecha.add(btnEmpleado);
 	    
-	    ImageIcon icono = new ImageIcon( "Data/.png" );
-	    etiquetaImagen = new JLabel( "" );
-	    etiquetaImagen.setIcon( icono );
+	    //ImageIcon icono = new ImageIcon( "Data/.png" );
+	    //etiquetaImagen = new JLabel( "" );
+	    //etiquetaImagen.setIcon( icono );
 	    
 		
 	}
 	
 	
-   
-
-
-	public void dispose()
-    {
-        JOptionPane.showMessageDialog( this, "se guard� la aplicaci�n" );
-        System.exit( 0 );
-    }
+	
+	public void paint (Graphics g)
+	{
+		
+		ImageIcon imagen = new ImageIcon(getClass().getResource("/images/background.png"));
+		g.drawImage(imagen.getImage(), 0, 0, getWidth(), getHeight(), this);
+		
+		
+		//setOpaque(false);
+		//super.paint(g);
+		
+	}
     
-    
+	
     public static void main(String[] args)
     {
-        VentanaPrincipal_1 ventana = new VentanaPrincipal_1( );
+    	JFrame ventana = new JFrame("MENU");
+        VentanaPrincipal_1 inicio = new VentanaPrincipal_1();
+        ventana.setContentPane(inicio);
+        ventana.setSize(600,600);
         ventana.setLocationRelativeTo( null );
-        ventana.setVisible( true );
+        condicion = true;
+        ventana.setVisible( condicion );
+        ventana.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
     }
-
-    
     
 
-    //-----------------------------------------------------------------
-    // Constructores
-    //-----------------------------------------------------------------
-
-    /**
-     * Constructor del panel.
-     * <b>post: </b> Se construyó el panel.
-     */
-
     
-    
-  //Etiqueta de Imagen
-    //ImageIcon icono = new ImageIcon( "data/linea" + numeroLinea + ".png" );
-    //etiquetaImagen = new JLabel( "" );
-    //etiquetaImagen.setIcon( icono );
-    //etiquetaImagen.setHorizontalAlignment( JLabel.CENTER );
+    public void actionPerformed( ActionEvent evento, MenuEmpleado pEmpleado, MenuCliente pCliente, MenuAdministradorLocal pAdminLocal, MenuAdministradorGeneral pAdminGeneral )
+    {
+    	
+    	empleado = pEmpleado;
+    	cliente = pCliente;
+    	adminLocal = pAdminLocal;
+    	adminGeneral = pAdminGeneral;
+    	
+        // TODO Auto-generated method stub
+        if(evento.getActionCommand( ).equals( "OPCION_1" ))
+        {
+        	this.setVisible(false);
+        	adminGeneral.setVisible(true);
+        }
+        else if (evento.getActionCommand( ).equals( "U" ))
+        {
+            JOptionPane.showMessageDialog(temporaryLostComponent, "se presionó comando GS" );
+        }
+        else if (evento.getActionCommand( ).equals( "C" ))
+        {
+            JOptionPane.showMessageDialog(temporaryLostComponent, "se presionó opción SALIR" );
+        }
+        else if (evento.getActionCommand( ).equals( "R" ))
+        {
+            JOptionPane.showMessageDialog(temporaryLostComponent, "se presionó opción SALIR" );
+        }
+        
+    }
+   
 }
 
 
