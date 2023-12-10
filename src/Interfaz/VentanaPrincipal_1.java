@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -14,27 +15,29 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.Icon;
 
-public class VentanaPrincipal_1 extends JLabel
+public class VentanaPrincipal_1 extends JLabel implements ActionListener
 {
 	private JButton btnAdminGeneral;
 	private JButton btnAdminLocal;
 	private JButton btnCliente;
 	private JButton btnEmpleado;
 	
-	private JLabel etiquetaImagen;
+
 	
 	private MenuAdministradorGeneral adminGeneral;
 	private MenuAdministradorLocal adminLocal;
 	private MenuCliente cliente;
 	private MenuEmpleado empleado;
-	private static boolean condicion;
 	
 	
 	
 	
-	public VentanaPrincipal_1()      
+	
+	public VentanaPrincipal_1( )      
 	{
+		
 		
 		//setSize(750, 600);
 		setLayout(new BorderLayout());
@@ -44,26 +47,41 @@ public class VentanaPrincipal_1 extends JLabel
 		
 		panelDerecha.setLayout(new GridLayout(4,1));
 		
-		btnAdminGeneral = new JButton ("NOMBRE COMPLETO");
-		btnAdminGeneral.setPreferredSize(new Dimension (200,80));
+		btnAdminGeneral = new JButton ("ADMINISTRADOR GENERAL");
+		btnAdminGeneral.setPreferredSize(new Dimension (10,10));
 		btnAdminGeneral.setActionCommand("OPCION_1");
-		//btnAdminGeneral.addActionListener(ActionListener.class, this);
+		btnAdminGeneral.addActionListener(this);
 		panelDerecha.add(btnAdminGeneral);
+		
 
-	    btnAdminLocal = new JButton ("USUARIO");
+	    btnAdminLocal = new JButton ("ADMINISTRADOR LOCAL");
+	    btnAdminLocal.setPreferredSize(new Dimension (10,10));
+	    btnAdminLocal.setActionCommand("OPCION_2");
+	    btnAdminLocal.addActionListener(this);
 	    panelDerecha.add(btnAdminLocal);
 
-	    btnCliente = new JButton ("CONTRASEÑA");
+	    btnCliente = new JButton ("EMPLEADO");
+	    btnCliente.setPreferredSize(new Dimension (10,10));
+	    btnCliente.setActionCommand("OPCION_3");
+	    btnCliente.addActionListener(this);
 	    panelDerecha.add(btnCliente);
 
-	    btnEmpleado = new JButton ("REGISTRARSE");
+	    btnEmpleado = new JButton ("CLIENTE");
+	    btnEmpleado.setPreferredSize(new Dimension (200,30));
+	    btnEmpleado.setActionCommand("OPCION_4");
+	    btnEmpleado.addActionListener(this);
 	    panelDerecha.add(btnEmpleado);
 	    
-	    //ImageIcon icono = new ImageIcon( "Data/.png" );
-	    //etiquetaImagen = new JLabel( "" );
-	    //etiquetaImagen.setIcon( icono );
+	    JPanel panelIzquierda = new JPanel();
+	    ImageIcon icono = new ImageIcon("/images/Logo.png");
+	    JLabel etiquetaImagen = new JLabel();
+	    Icon icon = new ImageIcon(icono.getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));      
+	    etiquetaImagen.setIcon(icon);
+	    etiquetaImagen.repaint();
+	    panelIzquierda.add(etiquetaImagen);
+		add(panelIzquierda, BorderLayout.WEST);
 	    
-		
+	    
 	}
 	
 	
@@ -75,8 +93,8 @@ public class VentanaPrincipal_1 extends JLabel
 		g.drawImage(imagen.getImage(), 0, 0, getWidth(), getHeight(), this);
 		
 		
-		//setOpaque(false);
-		//super.paint(g);
+		setOpaque(false);
+		super.paint(g);
 		
 	}
     
@@ -88,41 +106,58 @@ public class VentanaPrincipal_1 extends JLabel
         ventana.setContentPane(inicio);
         ventana.setSize(600,600);
         ventana.setLocationRelativeTo( null );
-        condicion = true;
-        ventana.setVisible( condicion );
+        
+      
         ventana.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+        
+        java.awt.EventQueue.invokeLater(new Runnable()
+        {
+
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				
+			}
+        	
+        })
     }
+    
+    
     
 
     
-    public void actionPerformed( ActionEvent evento, MenuEmpleado pEmpleado, MenuCliente pCliente, MenuAdministradorLocal pAdminLocal, MenuAdministradorGeneral pAdminGeneral )
+
+    
+    public void actionPerformed( ActionEvent e)
     {
     	
-    	empleado = pEmpleado;
-    	cliente = pCliente;
-    	adminLocal = pAdminLocal;
-    	adminGeneral = pAdminGeneral;
+    	//empleado = pEmpleado;
+    	//cliente = pCliente;
+    	//adminLocal = pAdminLocal;
+    	//adminGeneral = pAdminGeneral;
     	
         // TODO Auto-generated method stub
-        if(evento.getActionCommand( ).equals( "OPCION_1" ))
+        if(e.getActionCommand( ).equals( "OPCION_1" ))
         {
-        	this.setVisible(false);
-        	adminGeneral.setVisible(true);
-        }
-        else if (evento.getActionCommand( ).equals( "U" ))
-        {
-            JOptionPane.showMessageDialog(temporaryLostComponent, "se presionó comando GS" );
-        }
-        else if (evento.getActionCommand( ).equals( "C" ))
-        {
-            JOptionPane.showMessageDialog(temporaryLostComponent, "se presionó opción SALIR" );
-        }
-        else if (evento.getActionCommand( ).equals( "R" ))
-        {
-            JOptionPane.showMessageDialog(temporaryLostComponent, "se presionó opción SALIR" );
+        	MenuEmpleado MAG = new MenuEmpleado();
+			MAG.setVisible(true);
+        	
         }
         
+        
     }
+
+
+
+
+
+
+
+	
+
+
+
+	
    
 }
 
