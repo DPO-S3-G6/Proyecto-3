@@ -119,7 +119,8 @@ public class VentanaPrincipal_1 extends JLabel implements ActionListener
 				
 			}
         	
-        })
+        });
+
     }
     
     
