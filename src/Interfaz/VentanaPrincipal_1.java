@@ -37,18 +37,26 @@ public class VentanaPrincipal_1 extends JFrame
 	
 	public VentanaPrincipal_1( )      
 	{
-		
+		// Esta linea sirve para llamar a la funcion de ImagenFondo que dentro de ella esta
+		// la funcion paint requerida para poder poner un fondo en el panel. Toca de esta
+		// manera puesto que la funcion poemos establecerle la extension JLabel que es la unica
+		// que permite ejeuctar setOpaque.
 		this.setContentPane(new ImagenFondo());
 		
+		
+		//Estas 4 lineas son para el funcionamiento del panel. Puede que getCompnents sea inservible pero
+		// no quitar.
 		setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
         getComponents();
         this.dispose();
         setResizable(false);
         
-        setSize(600,600);
+        
+        
+        //De aqui para adelante es ubicar los botones, cajas de texto o otros elementos en el panel.
+        // Tambien como tamaños y colores
+        setSize(1250,800);
         setLocationRelativeTo( null );
-        
-        
         
         
 		setLayout(new BorderLayout());
@@ -60,29 +68,23 @@ public class VentanaPrincipal_1 extends JFrame
 		
 		btnAdminGeneral = new JButton ("ADMINISTRADOR GENERAL");
 		btnAdminGeneral.setPreferredSize(new Dimension (10,10));
-		//btnAdminGeneral.addActionListener(this);
-		//btnAdminGeneral.setActionCommand("OPCION_1");
 		panelDerecha.add(btnAdminGeneral);
 		
 
 	    btnAdminLocal = new JButton ("ADMINISTRADOR LOCAL");
 	    btnAdminLocal.setPreferredSize(new Dimension (10,10));
-	    //btnAdminLocal.setActionCommand("OPCION_2");
-	    //btnAdminLocal.addActionListener(this);
 	    panelDerecha.add(btnAdminLocal);
 
 	    btnCliente = new JButton ("EMPLEADO");
 	    btnCliente.setPreferredSize(new Dimension (10,10));
-	    //btnCliente.setActionCommand("OPCION_3");
-	    //btnCliente.addActionListener(this);
 	    panelDerecha.add(btnCliente);
 
 	    btnEmpleado = new JButton ("CLIENTE");
 	    btnEmpleado.setPreferredSize(new Dimension (200,30));
-	    //btnEmpleado.setActionCommand("OPCION_4");
-	    //btnEmpleado.addActionListener(this);
 	    panelDerecha.add(btnEmpleado);
 	    
+	    
+	    //Planeaba poner la imagen de logo, pero ha habido percances en su aplicacion
 	    JPanel panelIzquierda = new JPanel();
 	    ImageIcon icono = new ImageIcon("/images/Logo.png");
 	    JLabel etiquetaImagen = new JLabel();
@@ -93,6 +95,9 @@ public class VentanaPrincipal_1 extends JFrame
 		add(panelIzquierda, BorderLayout.WEST);
 	    
 	    
+		// Estas lineas son otro metodo para ejecutar los botones al presionarlos en el panel.
+		// Esto lo que hace es vincular el boton a la funcion actionPerformed, que es para ejecutar algun
+		// comando, en este caso el click del boton.
 		btnAdminGeneral.addActionListener(oyente);
 		btnAdminLocal.addActionListener(oyente);
 		btnCliente.addActionListener(oyente);
@@ -103,6 +108,7 @@ public class VentanaPrincipal_1 extends JFrame
 	
 
 
+	//Funcion para ejecutar el panel
     public static void main(String[] args)
     {
     	java.awt.EventQueue.invokeLater(new Runnable()
@@ -117,7 +123,8 @@ public class VentanaPrincipal_1 extends JFrame
     
     
     
-    
+    // Esta funcion es necesaria para aplicarle la extension de JPanel y asi poder
+    // usar setOpaque
     public class ImagenFondo extends JPanel
     {
     	
@@ -135,7 +142,10 @@ public class VentanaPrincipal_1 extends JFrame
     
     
   
-    
+    // Linea para implementar los botones
+    // Esta funcion tiene como objetivo el de abrir un panel y cerrar el actual. Cuando
+    // se presiona un boton, el boton creara un vinculo con la interfaz a la que conecta
+    // y activara su setVisble, lo que permitira ver esa interfaz y ek dispose es para cerra la actual.
     ActionListener oyente = new ActionListener() 
     {
 		@Override
@@ -146,27 +156,38 @@ public class VentanaPrincipal_1 extends JFrame
 			{
 				MenuAdministradorGeneral MAG = new MenuAdministradorGeneral();
 				MAG.setVisible(true);
+				dispose();
 			}
 			
 			else if (e.getSource() == btnAdminLocal)
 			{
 				MenuAdministradorLocal MAL = new MenuAdministradorLocal();
 				MAL.setVisible(true);
+				dispose();
 			}
 			
 			else if (e.getSource() == btnEmpleado)
 			{
 				MenuEmpleado ME = new MenuEmpleado();
 				ME.setVisible(true);
+				dispose();
 			}
 			
 			else if (e.getSource() == btnCliente)
 			{
 				MenuCliente MC = new MenuCliente();
 				MC.setVisible(true);
+				dispose();
 			}
 		}
+
+		
     };
+
+    
+    
+ 
+	
    
 }
 

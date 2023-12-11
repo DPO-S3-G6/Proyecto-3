@@ -16,6 +16,8 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import Interfaz.VentanaPrincipal_1.ImagenFondo;
+
 public class MenuAdministradorLocal extends JFrame
 {
 	private JButton btnGestionarEmple;
@@ -30,13 +32,14 @@ public class MenuAdministradorLocal extends JFrame
 		
 		this.setContentPane(new ImagenFondo());
 		
+		
 		setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
 		getComponents();
         this.dispose();
         setResizable(false);
         
 		setLayout(new BorderLayout());
-		setSize(600,600);
+		setSize(1250,800);
         setLocationRelativeTo( null );
         
         
@@ -72,6 +75,10 @@ public class MenuAdministradorLocal extends JFrame
 		add(panelDerecha, BorderLayout.EAST);
 	    
 	    
+		
+		btnGestionarEmple.addActionListener(oyente);
+		btnSalir.addActionListener(oyente);
+		
 	}
 	
 	
@@ -104,7 +111,33 @@ public class MenuAdministradorLocal extends JFrame
         	
     }
     
+    
+    
+    ActionListener oyente = new ActionListener() 
+    {
+		@Override
+		public void actionPerformed(ActionEvent e) 
+		{
+			// TODO Auto-generated method stub
+			if (e.getSource() == btnGestionarEmple) 
+			{
+				GestionEmpleados GE = new GestionEmpleados();
+				GE.setVisible(true);
+				dispose();
+			}		
+			else if (e.getSource() == btnSalir)
+			{
+				VentanaPrincipal_1 VP = new VentanaPrincipal_1();
+				VP.setVisible(true);
+				dispose();
+			}
+		}
 
- 
+		
+    };
+
+
+   
+
 
 }

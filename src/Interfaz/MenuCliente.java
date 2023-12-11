@@ -43,7 +43,7 @@ public class MenuCliente extends JFrame
         this.dispose();
         setResizable(false);
         
-        setSize(600,600);
+        setSize(1250,800);
         setLocationRelativeTo( null );
 		
 		
@@ -117,6 +117,12 @@ public class MenuCliente extends JFrame
 
 
 	    
+	    
+	    btnReservarVehiculo.addActionListener(oyente);
+	    btnConsultarPerfil.addActionListener(oyente);
+	    btnVerReserva.addActionListener(oyente);
+		btnSalir.addActionListener(oyente);
+	    
 	}
 	
 	
@@ -152,4 +158,46 @@ public class MenuCliente extends JFrame
     
     
     
+    ActionListener oyente = new ActionListener() 
+    {
+		@Override
+		public void actionPerformed(ActionEvent e) 
+		{
+			// TODO Auto-generated method stub
+			if (e.getSource() == btnReservarVehiculo) 
+			{
+				ReservaVehiculoCliente RVC = new ReservaVehiculoCliente();
+				RVC.setVisible(true);
+				dispose();
+			}
+			
+			else if (e.getSource() == btnConsultarPerfil)
+			{
+				Perfil P = new Perfil();
+				P.setVisible(true);
+				dispose();
+			}
+			
+			else if (e.getSource() == btnVerReserva)
+			{
+				Reserva R = new Reserva();
+				R.setVisible(true);
+				dispose();
+			}
+			
+			else if (e.getSource() == btnSalir)
+			{
+				VentanaPrincipal_1 VP = new VentanaPrincipal_1();
+				VP.setVisible(true);
+				dispose();
+			}
+		}
+
+		
+    };
+
+    
+    
 }
+
+
