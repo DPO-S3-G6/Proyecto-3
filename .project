@@ -14,6 +14,7 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+<<<<<<< HEAD
 	<linkedResources>
 		<link>
 			<name>Data/th.jpg</name>
@@ -29,6 +30,11 @@
 	<filteredResources>
 		<filter>
 			<id>1702250883360</id>
+=======
+	<filteredResources>
+		<filter>
+			<id>1702244164396</id>
+>>>>>>> Oz
 			<name></name>
 			<type>30</type>
 			<matcher>
