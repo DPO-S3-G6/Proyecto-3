@@ -1,12 +1,20 @@
 package Interfaz;
 
 import java.awt.BorderLayout;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import java.util.EventListener;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.GridLayout;
+import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import java.awt.Color;
-import java.awt.event.ActionEvent
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+
 public class GestionSedes extends JFrame implements ActionListener{
 
     private JPanel plNavegacion;
