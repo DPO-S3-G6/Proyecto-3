@@ -15,6 +15,8 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import model.Empleado;
+
 public class GestionEmpleados extends JFrame implements ActionListener{
 
     private JPanel plNavegacion;
@@ -118,17 +120,20 @@ public class GestionEmpleados extends JFrame implements ActionListener{
         pnlGestion = new JPanel( );
         add(pnlGestion,BorderLayout.EAST);
     }
-    
-    public void paint (Graphics g)
-	{
+
+     public class ImagenFondo extends JPanel
+    {
+        public void paint (Graphics g)
+	    {
 		
 		ImageIcon Fondo = new ImageIcon(getClass().getResource("/images/Gestiones.png"));
 		g.drawImage(Fondo.getImage(), 0, 0, getWidth(), getHeight(), this);
 		setOpaque(false);
 		super.paint(g);
 		
-	}
-    
+	    }
+    }
+
     public static void main(String[] args)
     {
     	JFrame ventana = new JFrame("GESTIÓN EMPLEADOS");
@@ -140,16 +145,35 @@ public class GestionEmpleados extends JFrame implements ActionListener{
         ventana.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
     }
 
-	public void Buscar()
+    public void Borrar()
     {
         String Numeral= JOptionPane.showInputDialog( this, "Ingrese el Numeral", 
-                "Buscar Empleado", JOptionPane.QUESTION_MESSAGE );
+                "Buscar Vehículo", JOptionPane.QUESTION_MESSAGE );
         
         if(Numeral!=null)
         {
             try
             {
-                Sedes buscada= GestionEmpelados.darSedeporNumeral( Numeral );
+                Vehiculo buscada= Vehiculo.darVehiculo( Numeral );
+                panelCentro.actualizar( buscada );
+            }
+            catch( Exception e )
+            {
+                JOptionPane.showMessageDialog( this, "No se encontró lo que buscaba", "ERROR", JOptionPane.WARNING_MESSAGE );
+            }
+        } 
+    }
+    
+    public void Buscar()
+    {
+        String Numeral= JOptionPane.showInputDialog( this, "Ingrese el Numeral", 
+                "Buscar Vehículo", JOptionPane.QUESTION_MESSAGE );
+        
+        if(Numeral!=null)
+        {
+            try
+            {
+                Vehiculo buscada= Vehiculo.darVehiculo( Numeral );
                 panelCentro.actualizar( buscada );
             }
             catch( Exception e )
@@ -157,33 +181,60 @@ public class GestionEmpleados extends JFrame implements ActionListener{
                 JOptionPane.showMessageDialog( this, "No se encontró lo que buscaba", "ERROR", JOptionPane.WARNING_MESSAGE );
             }
         }
-        
-    
     }
-    
+
+    public void Añadir()
+    {
+        String Numeral= JOptionPane.showInputDialog( this, "Ingrese el Numeral", 
+                "Buscar Vehículo", JOptionPane.QUESTION_MESSAGE );
+        
+        if(Numeral!=null)
+        {
+            try
+            {
+                Vehiculo buscada= Vehiculo.darVehiculo( Numeral );
+                panelCentro.actualizar( buscada );
+            }
+            catch( Exception e )
+            {
+                JOptionPane.showMessageDialog( this, "No se encontró lo que buscaba", "ERROR", JOptionPane.WARNING_MESSAGE );
+            }
+        }
+    }
+
+    public void Actualizar(Vehículo )
+    {
+        txtNum.setText( Vehiculo.darNombreObra( ) );
+        txtNombreArtista.setText( obra.darNombreArtista( ) );
+        txtTipoObra.setText( obra.darTipo( ) );
+        
+    }
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		if(evento.getActionCommand( ).equals( "An" ))
+		if (e.getSource() == btnAnadir)
         {
-            AñadirSede( );
+            Añadir( );
         }
-        else if (evento.getActionCommand( ).equals( "Bu" ))
+        else if ((e.getSource() == btnBuscar)
         {
-            BuscarSede();
+            Buscar();
         }
-        else if (evento.getActionCommand( ).equals( "Ac" ))
+        else if ((e.getSource() == btnActualizar)
         {
             Actualizar();
         }
-        else if (evento.getActionCommand( ).equals( "Bo" ))
+        else if ((e.getSource() == btnBorrar)
         {
-            BorrarSede();
+            Borrar();
         }
-        else if (evento.getActionCommand( ).equals( "SALIR" ))
+        else if ((e.getSource() == btnSalir)
         {
-            SALIR();
+            VentanaPrincipal_1 VP = new VentanaPrincipal_1();
+				VP.setVisible(true);
+				dispose();
         }
 	}
+        
 }

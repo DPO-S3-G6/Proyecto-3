@@ -144,16 +144,16 @@ public class GestionSedes extends JFrame implements ActionListener{
         ventana.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
     }
 
-    public void Buscar()
+    public void Borrar()
     {
         String Numeral= JOptionPane.showInputDialog( this, "Ingrese el Numeral", 
-                "Buscar Sede", JOptionPane.QUESTION_MESSAGE );
+                "Buscar Vehículo", JOptionPane.QUESTION_MESSAGE );
         
         if(Numeral!=null)
         {
             try
             {
-                Sedes buscada= GestionSedes.darSedeporNumeral( Numeral );
+                Vehiculo buscada= Vehiculo.darVehiculo( Numeral );
                 panelCentro.actualizar( buscada );
             }
             catch( Exception e )
@@ -165,33 +165,82 @@ public class GestionSedes extends JFrame implements ActionListener{
     
     }
     
+    public void Buscar()
+    {
+        String Numeral= JOptionPane.showInputDialog( this, "Ingrese el Numeral", 
+                "Buscar Vehículo", JOptionPane.QUESTION_MESSAGE );
+        
+        if(Numeral!=null)
+        {
+            try
+            {
+                Vehiculo buscada= Vehiculo.darVehiculo( Numeral );
+                panelCentro.actualizar( buscada );
+            }
+            catch( Exception e )
+            {
+                JOptionPane.showMessageDialog( this, "No se encontró lo que buscaba", "ERROR", JOptionPane.WARNING_MESSAGE );
+            }
+        }
+        
+    
+    }
+
+    public void Añadir()
+    {
+        String Numeral= JOptionPane.showInputDialog( this, "Ingrese el Numeral", 
+                "Buscar Vehículo", JOptionPane.QUESTION_MESSAGE );
+        
+        if(Numeral!=null)
+        {
+            try
+            {
+                Vehiculo buscada= Vehiculo.darVehiculo( Numeral );
+                panelCentro.actualizar( buscada );
+            }
+            catch( Exception e )
+            {
+                JOptionPane.showMessageDialog( this, "No se encontró lo que buscaba", "ERROR", JOptionPane.WARNING_MESSAGE );
+            }
+        }
+        
+    
+    }
+
+    public void Actualizar(Vehículo )
+    {
+        txtNum.setText( Vehiculo.darNombreObra( ) );
+        txtNombreArtista.setText( obra.darNombreArtista( ) );
+        txtTipoObra.setText( obra.darTipo( ) );
+        
+    }
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		if(evento.getActionCommand( ).equals( "An" ))
+		if (e.getSource() == btnAnadir)
         {
-            AñadirSede( );
+            Añadir( );
         }
-        else if (evento.getActionCommand( ).equals( "Bu" ))
+        else if ((e.getSource() == btnBuscar)
         {
-            BuscarSede();
+            Buscar();
         }
-        else if (evento.getActionCommand( ).equals( "Ac" ))
+        else if ((e.getSource() == btnActualizar)
         {
             Actualizar();
         }
-        else if (evento.getActionCommand( ).equals( "Bo" ))
+        else if ((e.getSource() == btnBorrar)
         {
-            BorrarSede();
+            Borrar();
         }
-        else if (evento.getActionCommand( ).equals( "SALIR" ))
+        else if ((e.getSource() == btnSalir)
         {
-            SALIR();
+            VentanaPrincipal_1 VP = new VentanaPrincipal_1();
+				VP.setVisible(true);
+				dispose();
         }
 	}
         
-    
 }
-
 
