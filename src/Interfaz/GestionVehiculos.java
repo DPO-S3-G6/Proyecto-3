@@ -43,7 +43,7 @@ public class GestionVehiculos extends JFrame implements ActionListener{
     private JTextField txtEst;
     private JTextField txtDis;
     
-    public GestionSedes()
+    public GestionVehiculos()
     {
     	setSize( 750, 600 );
     	setTitle( "CARBOOK: Gestión Vehiculos" );
@@ -153,42 +153,31 @@ public class GestionVehiculos extends JFrame implements ActionListener{
         add(pnlDatos,BorderLayout.CENTER);
     }
     
-    public void actionPerformed( ActionEvent evento )
-    {
-        // TODO Auto-generated method stub
-        if(evento.getActionCommand( ).equals( "An" ))
-        {
-        	JOptionPane.showMessageDialog(temporaryLostComponent, "se presionó comando Añadir" );
-        }
-        else if (evento.getActionCommand( ).equals( "Bu" ))
-        {
-            JOptionPane.showMessageDialog(temporaryLostComponent, "se presionó comando Buscar" );
-        }
-        else if (evento.getActionCommand( ).equals( "Ac" ))
-        {
-            JOptionPane.showMessageDialog(temporaryLostComponent, "se presionó opción Actualizar" );
-        }
-        else if (evento.getActionCommand( ).equals( "Bo" ))
-        {
-            JOptionPane.showMessageDialog(temporaryLostComponent, "se presionó opción Borrar" );
-        }
-        else if (evento.getActionCommand( ).equals( "SALIR" ))
-        {
-            JOptionPane.showMessageDialog(temporaryLostComponent, "se presionó opción SALIR" );
-        }
-        
-    }
+    public void paint (Graphics g)
+	{
+		
+		ImageIcon Fondo = new ImageIcon(getClass().getResource("/images/Gestiones.png"));
+		g.drawImage(Fondo.getImage(), 0, 0, getWidth(), getHeight(), this);
+		setOpaque(false);
+		super.paint(g);
+		
+	}
     
-    public void dispose()
-    {
-        JOptionPane.showMessageDialog( this, "se guardó la aplicación" );
-        System.exit( 0 );
-    }
     public static void main(String[] args)
     {
-        MenuCliente ventana = new MenuGestionEmpleadosCliente( );
+    	JFrame ventana = new JFrame("GESTIÓN VEHÍCULOS");
+    	MenuAdministradorGeneral inicio = new GestionVehiculos();
+        ventana.setContentPane(inicio);
+        ventana.setSize(600,600);
         ventana.setLocationRelativeTo( null );
         ventana.setVisible( true );
+        ventana.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
     }
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
         
 }
