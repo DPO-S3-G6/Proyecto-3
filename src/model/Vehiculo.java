@@ -1,7 +1,10 @@
 package model;
 
+import java.util.Properties;
 public class Vehiculo {
 	
+	private String Numeral;
+	private String Nombre;
 	private String placa;
 	private String marca;
 	private String color;
@@ -12,15 +15,26 @@ public class Vehiculo {
 	private boolean disponible;
 
 	//constructor de vehiculo
-	public Vehiculo(String placa, String marca, String color,String transmision, int capacidad, boolean estado, int size, boolean disponible) {
-		this.placa = placa;
-		this.marca = marca;
-		this.color = color;
-		this.transmision = transmision;
-		this.capacidad = capacidad;
-		this.estado = estado;
-		this.size = 0;
-		this.disponible = true;
+	public Vehiculo darVehiculo(int pNumVehiculo, Properties pDatos) throws Excepcion {
+		try
+        {
+    
+            Nombre = pDatos.getProperty( "GestionVehiculos.Vehiculo" + pNumVehiculo + ".Carro" );
+            nombreArtista = pDatos.getProperty( "museo.obra" + pNumVehiculo + ".nombreArtista" );
+            estaRemate = Boolean.parseBoolean( pDatos.getProperty( "museo.obra" + pNumVehiculo + ".remate" ) );
+            intTipo = Integer.parseInt( pDatos.getProperty( "museo.obra" + pNumVehiculo + ".tipo" ) );
+            
+        }
+        catch( Exception e )
+        {
+//            e.printStackTrace( );
+            throw new EjemploExcepcion( "Error en el formato del archivo", nombreObra );
+            
+    
+	
+		}
+	public getVehiculo
+	
+	
 	}
-
 }

@@ -14,12 +14,16 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
+import java.awt.Color;
+
+import model.Vehiculo;
 
 public class GestionVehiculos extends JFrame implements ActionListener{
 
     private JPanel pnlGestion;
     private JPanel pnlDatos;
-    private JPanel pnlTabla:
+    private JPanel pnlTabla;
 
     private JButton btnAnadir;
 	private JButton btnBuscar;
@@ -61,89 +65,88 @@ public class GestionVehiculos extends JFrame implements ActionListener{
         //panel Gestión escirtura y criterios
         pnlGestion.add(new JLabel());
         lblTitle=new JLabel("Gestión Vehículos");
-        add(pnlGestion,BorderLayout.EAST)
+        add(pnlGestion,BorderLayout.EAST);
         pnlGestion.setLayout( new GridLayout( 31, 1 ) );
-        pnlGestion.setBorder();
         pnlGestion.add(lblTitle);
         pnlGestion.add(new JLabel());
         lblNum=new JLabel("Numeral");
         pnlGestion.add(lblNum);
         txtNum=new JTextField("");
-        txtNum.setBackground( Color.WHITE )
+        txtNum.setBackground( Color.WHITE );
         txtNum.setEditable( true );
         pnlGestion.add(txtNum);
         lblCar=new JLabel("Carro");
         pnlGestion.add(lblCar);
         txtCar=new JTextField("");
-        txtCar.setBackground( Color.WHITE )
+        txtCar.setBackground( Color.WHITE );
         txtCar.setEditable( true );
         pnlGestion.add(txtCar);
         lblMar=new JLabel("Marca");
         pnlGestion.add(lblMar);
         txtMar=new JTextField("");
-        txtMar.setBackground( Color.WHITE )
+        txtMar.setBackground( Color.WHITE );
         txtMar.setEditable( true );
         pnlGestion.add(txtMar);
         lblCat=new JLabel("Categoría");
         pnlGestion.add(lblCat);
         txtCat=new JTextField("");
-        txtCat.setBackground( Color.WHITE )
+        txtCat.setBackground( Color.WHITE );
         txtCat.setEditable( true );
         pnlGestion.add(txtCat);
         lblPla=new JLabel("Placa");
         pnlGestion.add(lblPla);
         txtPla=new JTextField("");
-        txtPla.setBackground( Color.WHITE )
+        txtPla.setBackground( Color.WHITE );
         txtPla.setEditable( true );
         pnlGestion.add(txtPla);
         lblCol=new JLabel("Color");
         pnlGestion.add(lblCol);
         txtCol=new JTextField("");
-        txtCol.setBackground( Color.WHITE )
+        txtCol.setBackground( Color.WHITE );
         txtCol.setEditable( true );
         pnlGestion.add(txtCol);
         lblCap=new JLabel("Capacidad");
         pnlGestion.add(lblCap);
         txtCap=new JTextField("");
-        txtCap.setBackground( Color.WHITE )
+        txtCap.setBackground( Color.WHITE );
         txtCap.setEditable( true );
         pnlGestion.add(txtCap);
         lblTam=new JLabel("Tamaño");
         pnlGestion.add(lblTam);
         txtTam=new JTextField("");
-        txtTam.setBackground( Color.WHITE )
+        txtTam.setBackground( Color.WHITE );
         txtTam.setEditable( true );
         pnlGestion.add(txtTam);
         lblTra=new JLabel("Transmisión");
         pnlGestion.add(lblTra);
         txtTra=new JTextField("");
-        txtTra.setBackground( Color.WHITE )
+        txtTra.setBackground( Color.WHITE );
         txtTra.setEditable( true );
         pnlGestion.add(txtTra);
         lblEst=new JLabel("Estado");
         pnlGestion.add(lblEst);
         txtEst=new JTextField("");
-        txtEst.setBackground( Color.WHITE )
+        txtEst.setBackground( Color.WHITE );
         txtEst.setEditable( true );
         pnlGestion.add(txtEst);
         lblDis=new JLabel("Disponibilidad");
         pnlGestion.add(lblDis);
         txtDis=new JTextField("");
-        txtDis.setBackground( Color.WHITE )
+        txtDis.setBackground( Color.WHITE );
         txtDis.setEditable( true );
         pnlGestion.add(txtDis);
         pnlGestion.add(new JLabel());
         btnAnadir= new JButton ("Añadir");
-        btnAnadir.setBackground(new Color (126,27,87))
+        btnAnadir.setBackground(new Color (126,27,87));
         pnlGestion.add(btnAnadir, BorderLayout.CENTER);
         btnBuscar= new JButton ("BUSCAR");
-        btnBuscar.setBackground( Color.WHITE )
+        btnBuscar.setBackground( Color.WHITE );
         pnlGestion.add(btnBuscar, BorderLayout.CENTER);
         btnActualizar = new JButton ("ACTUALIZAR");
-        btnActualizar.setBackground( new Color (255,222,89) )
+        btnActualizar.setBackground( new Color (255,222,89) );
         pnlGestion.add(btnActualizar, BorderLayout.CENTER);
         btnBorrar= new JButton ("BORRAR");
-        btnBorrar.setBackground( new Color (255,87,87) )
+        btnBorrar.setBackground( new Color (255,87,87) );
         pnlGestion.add(btnBorrar, BorderLayout.CENTER);
         pnlGestion.add(new JLabel());
         
@@ -165,46 +168,40 @@ public class GestionVehiculos extends JFrame implements ActionListener{
 
         //panel Tabla datos
         pnlTabla.setLayout( new GridLayout( 6, 11 ) );
-        lblNum.setBackground( Color.BLACK )
-        lblNum.setForeground( Color.WHITE )
+        lblNum.setBackground( Color.BLACK );
+        lblNum.setForeground( Color.WHITE );
         pnlDatos.add(lblNum);
-        lblCar.setBackground( Color.BLACK )
-        lblCar.setForeground( Color.WHITE )
+        lblCar.setBackground( Color.BLACK );
+        lblCar.setForeground( Color.WHITE );
         pnlDatos.add(lblCar);
-        lblMar.setBackground( Color.BLACK )
-        lblMar.setForeground( Color.WHITE )
+        lblMar.setBackground( Color.BLACK );
+        lblMar.setForeground( Color.WHITE );
         pnlDatos.add(lblMar);
-        lblCat.setBackground( Color.BLACK )
-        lblCat.setForeground( Color.WHITE )
+        lblCat.setBackground( Color.BLACK );
+        lblCat.setForeground( Color.WHITE );
         pnlDatos.add(lblCat);
-        lblPla.setBackground( Color.BLACK )
-        lblPla.setForeground( Color.WHITE )
+        lblPla.setBackground( Color.BLACK );
+        lblPla.setForeground( Color.WHITE );
         pnlDatos.add(lblPla);
-        lblCol.setBackground( Color.BLACK )
-        lblCol.setForeground( Color.WHITE )
+        lblCol.setBackground( Color.BLACK );
+        lblCol.setForeground( Color.WHITE );
         pnlDatos.add(lblCol);
-        lblCap.setBackground( Color.BLACK )
-        lblCap.setForeground( Color.WHITE )
+        lblCap.setBackground( Color.BLACK );
+        lblCap.setForeground( Color.WHITE );
         pnlDatos.add(lblCap);
-        lblTam.setBackground( Color.BLACK )
-        lblTam.setForeground( Color.WHITE )
+        lblTam.setBackground( Color.BLACK );
+        lblTam.setForeground( Color.WHITE );
         pnlDatos.add(lblTam);
-        lblTra.setBackground( Color.BLACK )
-        lblTra.setForeground( Color.WHITE )
+        lblTra.setBackground( Color.BLACK );
+        lblTra.setForeground( Color.WHITE );
         pnlDatos.add(lblTra);
-        lblEst.setBackground( Color.BLACK )
-        lblEst.setForeground( Color.WHITE )
+        lblEst.setBackground( Color.BLACK );
+        lblEst.setForeground( Color.WHITE );
         pnlDatos.add(lblEst);
-        lblDis.setBackground( Color.BLACK )
-        lblDis.setForeground( Color.WHITE )
+        lblDis.setBackground( Color.BLACK );
+        lblDis.setForeground( Color.WHITE );
         pnlDatos.add(lblDis);
         
-
-
-
-
-
-
 
 
         btnAnadir.addActionListener( this );
@@ -235,7 +232,6 @@ public class GestionVehiculos extends JFrame implements ActionListener{
 		
 		ImageIcon Fondo = new ImageIcon(getClass().getResource("/images/Gestiones.png"));
 		g.drawImage(Fondo.getImage(), 0, 0, getWidth(), getHeight(), this);
-		setOpaque(false);
 		super.paint(g);
 		
 	}
@@ -243,7 +239,7 @@ public class GestionVehiculos extends JFrame implements ActionListener{
     public static void main(String[] args)
     {
     	JFrame ventana = new JFrame("GESTIÓN VEHÍCULOS");
-    	MenuAdministradorGeneral inicio = new GestionVehiculos();
+    	GestionVehiculos inicio = new GestionVehiculos();
         ventana.setContentPane(inicio);
         ventana.setSize(600,600);
         ventana.setLocationRelativeTo( null );
@@ -260,7 +256,7 @@ public class GestionVehiculos extends JFrame implements ActionListener{
         {
             try
             {
-                Sedes buscada= GestionVehiculos.darSedeporNumeral( Numeral );
+                Vehiculo buscada= Vehiculo.darVehiculo( Numeral );
                 panelCentro.actualizar( buscada );
             }
             catch( Exception e )
@@ -272,6 +268,13 @@ public class GestionVehiculos extends JFrame implements ActionListener{
     
     }
     
+    public void actualizar(Vehículo )
+    {
+        txtNum.setText( Vehiculo.darNombreObra( ) );
+        txtNombreArtista.setText( obra.darNombreArtista( ) );
+        txtTipoObra.setText( obra.darTipo( ) );
+        
+    }
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
