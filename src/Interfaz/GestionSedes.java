@@ -29,15 +29,15 @@ public class GestionSedes extends JFrame implements ActionListener{
     private JLabel lblTitle;
     private JLabel lblNum;
     private JLabel lblUbi;
-    private JLabel lblHor;
-    private JLabel lblPla;
+    private JLabel lblHi;
+    private JLabel lblHc;
     private JLabel lblNom;
 
     private JTextField txtNom;
     private JTextField txtNum;
     private JTextField txtUbi;
-    private JTextField txtHor;
-    private JTextField txtPla;
+    private JTextField txtHi;
+    private JTextField txtHc;
 
     public GestionSedes()
     {
@@ -47,10 +47,11 @@ public class GestionSedes extends JFrame implements ActionListener{
 
         setLayout(new BorderLayout());
 
+        pnlGestion.add(new JLabel());
         pnlGestion.setLayout( new GridLayout( 19, 1 ) );
         pnlGestion.setBorder();
 
-        pnlGestion.add(new JLabel());
+        
         lblTitle=new JLabel("Gestión Sedes");
         pnlGestion.add(lblTitle);
         pnlGestion.add(new JLabel());
@@ -69,30 +70,57 @@ public class GestionSedes extends JFrame implements ActionListener{
         txtUbi=new JTextField("");
         txtUbi.setEditable( true );
         pnlGestion.add(txtUbi);
-        lblHor=new JLabel("Hora Inicio");
-        pnlGestion.add(lblHor);
-        txtHor=new JTextField("");
-        txtHor.setEditable( true );
-        pnlGestion.add(txtHor);
-        lblPla=new JLabel("Placa");
-        pnlGestion.add(lblPla);
-        txtPla=new JTextField("");
-        txtPla.setEditable( true );
-        pnlGestion.add(txtPla);
+        lblHi=new JLabel("Hora Inicio");
+        pnlGestion.add(lblHi);
+        txtHi=new JTextField("");
+        txtHi.setEditable( true );
+        pnlGestion.add(txtHi);
+        lblHc=new JLabel("Hora Cierre");
+        pnlGestion.add(lblHc);
+        txtHc=new JTextField("");
+        txtHc.setEditable( true );
+        pnlGestion.add(txtHc);
         pnlGestion.add(new JLabel());
         btnAnadir= new JButton ("Añadir");
+        btnAnadir.setBackground(new Color (126,27,87))
         pnlGestion.add(btnAnadir, BorderLayout.CENTER);
         btnBuscar= new JButton ("BUSCAR");
+        btnBuscar.setBackground( Color.WHITE )
         pnlGestion.add(btnBuscar, BorderLayout.CENTER);
         btnActualizar = new JButton ("ACTUALIZAR");
+        btnActualizar.setBackground( new Color (255,222,89) )
         pnlGestion.add(btnActualizar, BorderLayout.CENTER);
         btnBorrar= new JButton ("BORRAR");
+        btnBorrar.setBackground( new Color (255,87,87) )
         pnlGestion.add(btnBorrar, BorderLayout.CENTER);
         pnlGestion.add(new JLabel());
         
         //panel datos mostrados
         pnlDatos= new JPanel( );
+        pnlGestion.setLayout( new GridLayout( 3, 1 ) );
         add(pnlDatos,BorderLayout.CENTER);
+
+        btnAnadir.addActionListener( this );
+        btnAnadir.setActionCommand( "An" );
+
+        btnBuscar.addActionListener( this );
+        btnBuscar.setActionCommand( "Bu" );
+
+
+        btnActualizar.addActionListener( this );
+        btnActualizar.setActionCommand( "Ac" );
+
+        btnBorrar.addActionListener( this );
+        btnBorrar.setActionCommand( "Bo" );
+
+        btnSalir = new JButton ("SALIR");
+        add(btnSalir, BorderLayout.CENTER);
+
+        btnSalir.addActionListener( this );
+        btnSalir.setActionCommand( "SALIR" );
+
+        pnlGestion = new JPanel( );
+        add(pnlGestion,BorderLayout.EAST);
     }
     
     public void paint (Graphics g)
@@ -116,12 +144,54 @@ public class GestionSedes extends JFrame implements ActionListener{
         ventana.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
     }
 
+    public void Buscar()
+    {
+        String Numeral= JOptionPane.showInputDialog( this, "Ingrese el Numeral", 
+                "Buscar Sede", JOptionPane.QUESTION_MESSAGE );
+        
+        if(Numeral!=null)
+        {
+            try
+            {
+                Sedes buscada= GestionSedes.darSedeporNumeral( Numeral );
+                panelCentro.actualizar( buscada );
+            }
+            catch( Exception e )
+            {
+                JOptionPane.showMessageDialog( this, "No se encontró lo que buscaba", "ERROR", JOptionPane.WARNING_MESSAGE );
+            }
+        }
+        
+    
+    }
+    
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		
+		if(evento.getActionCommand( ).equals( "An" ))
+        {
+            AñadirSede( );
+        }
+        else if (evento.getActionCommand( ).equals( "Bu" ))
+        {
+            BuscarSede();
+        }
+        else if (evento.getActionCommand( ).equals( "Ac" ))
+        {
+            Actualizar();
+        }
+        else if (evento.getActionCommand( ).equals( "Bo" ))
+        {
+            BorrarSede();
+        }
+        else if (evento.getActionCommand( ).equals( "SALIR" ))
+        {
+            SALIR();
+        }
 	}
         
+    
 }
 
 

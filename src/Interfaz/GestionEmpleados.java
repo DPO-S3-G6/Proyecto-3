@@ -78,12 +78,16 @@ public class GestionEmpleados extends JFrame implements ActionListener{
         pnlGestion.add(txtCon);
         pnlGestion.add(new JLabel());
         btnAnadir= new JButton ("Añadir");
+        btnAnadir.setBackground(new Color (126,27,87))
         pnlGestion.add(btnAnadir, BorderLayout.CENTER);
         btnBuscar= new JButton ("BUSCAR");
+        btnBuscar.setBackground( Color.WHITE )
         pnlGestion.add(btnBuscar, BorderLayout.CENTER);
         btnActualizar = new JButton ("ACTUALIZAR");
+        btnActualizar.setBackground( new Color (255,222,89) )
         pnlGestion.add(btnActualizar, BorderLayout.CENTER);
         btnBorrar= new JButton ("BORRAR");
+        btnBorrar.setBackground( new Color (255,87,87) )
         pnlGestion.add(btnBorrar, BorderLayout.CENTER);
         pnlGestion.add(new JLabel());
         
@@ -91,6 +95,28 @@ public class GestionEmpleados extends JFrame implements ActionListener{
         pnlDatos= new JPanel( );
         add(pnlDatos,BorderLayout.CENTER);
     	
+
+        btnAnadir.addActionListener( this );
+        btnAnadir.setActionCommand( "An" );
+
+        btnBuscar.addActionListener( this );
+        btnBuscar.setActionCommand( "Bu" );
+
+
+        btnActualizar.addActionListener( this );
+        btnActualizar.setActionCommand( "Ac" );
+
+        btnBorrar.addActionListener( this );
+        btnBorrar.setActionCommand( "Bo" );
+
+        btnSalir = new JButton ("SALIR");
+        add(btnSalir, BorderLayout.CENTER);
+
+        btnSalir.addActionListener( this );
+        btnSalir.setActionCommand( "SALIR" );
+
+        pnlGestion = new JPanel( );
+        add(pnlGestion,BorderLayout.EAST);
     }
     
     public void paint (Graphics g)
@@ -114,9 +140,50 @@ public class GestionEmpleados extends JFrame implements ActionListener{
         ventana.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
     }
 
+	public void Buscar()
+    {
+        String Numeral= JOptionPane.showInputDialog( this, "Ingrese el Numeral", 
+                "Buscar Empleado", JOptionPane.QUESTION_MESSAGE );
+        
+        if(Numeral!=null)
+        {
+            try
+            {
+                Sedes buscada= GestionEmpelados.darSedeporNumeral( Numeral );
+                panelCentro.actualizar( buscada );
+            }
+            catch( Exception e )
+            {
+                JOptionPane.showMessageDialog( this, "No se encontró lo que buscaba", "ERROR", JOptionPane.WARNING_MESSAGE );
+            }
+        }
+        
+    
+    }
+    
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		
+		if(evento.getActionCommand( ).equals( "An" ))
+        {
+            AñadirSede( );
+        }
+        else if (evento.getActionCommand( ).equals( "Bu" ))
+        {
+            BuscarSede();
+        }
+        else if (evento.getActionCommand( ).equals( "Ac" ))
+        {
+            Actualizar();
+        }
+        else if (evento.getActionCommand( ).equals( "Bo" ))
+        {
+            BorrarSede();
+        }
+        else if (evento.getActionCommand( ).equals( "SALIR" ))
+        {
+            SALIR();
+        }
 	}
 }

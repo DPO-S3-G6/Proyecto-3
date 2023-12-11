@@ -1,0 +1,37 @@
+GestionVehiculos.cantidadVehiculos=3
+
+GestionVehiculos.Vehiculo1.Numeral= 1
+GestionVehiculos.Vehiculo1.Carro= GLA 200
+GestionVehiculos.Vehiculo1.Marca= Mercedez Benz
+GestionVehiculos.Vehiculo1.Categoria= LUJO SUV
+GestionVehiculos.Vehiculo1.Placa= EPS 420
+GestionVehiculos.Vehiculo1.Color= DORADO
+GestionVehiculos.Vehiculo1.Capacidad= 5
+GestionVehiculos.Vehiculo1.Tamaño= MEDIANO
+GestionVehiculos.Vehiculo1.Transmision= AUTOMATICA
+GestionVehiculos.Vehiculo1.Estado= OPTIMO
+GestionVehiculos.Vehiculo1.Disponibilidad= OCUPADO
+
+GestionVehiculos.Vehiculo2.Numeral= 2
+GestionVehiculos.Vehiculo2.Carro= GOLF
+GestionVehiculos.Vehiculo2.Marca= Völkswagen
+GestionVehiculos.Vehiculo2.Categoria= COMPACTO
+GestionVehiculos.Vehiculo2.Placa= LMQ 905
+GestionVehiculos.Vehiculo2.Color= NEGRO
+GestionVehiculos.Vehiculo2.Capacidad= 5
+GestionVehiculos.Vehiculo2.Tamaño= PEQUEÑO
+GestionVehiculos.Vehiculo2.Transmision= AUTO/MECA
+GestionVehiculos.Vehiculo2.Estado= OPTIMO
+GestionVehiculos.Vehiculo2.Disponibilidad= DISPONIBLE
+
+GestionVehiculos.Vehiculo3.Numeral= 3
+GestionVehiculos.Vehiculo3.Carro= Cruiser
+GestionVehiculos.Vehiculo3.Marca= Toyota
+GestionVehiculos.Vehiculo3.Categoria= 4X4
+GestionVehiculos.Vehiculo3.Placa= JER 515
+GestionVehiculos.Vehiculo3.Color= BLANCO
+GestionVehiculos.Vehiculo3.Capacidad= 4
+GestionVehiculos.Vehiculo3.Tamaño= GRANDE
+GestionVehiculos.Vehiculo3.Transmision= AUTOMATICA
+GestionVehiculos.Vehiculo3.Estado= DAÑADO
+GestionVehiculos.Vehiculo3.Disponibilidad= MANTENIMIENTO

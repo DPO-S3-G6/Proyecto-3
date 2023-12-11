@@ -1,0 +1,19 @@
+GestionSedes.cantidadSedes=3
+
+GestionSedes.Sede1.Numeral= 1
+GestionSedes.Sede1.Nombre= SUBA
+GestionSedes.Sede1.Ubicación= Cl. 145 #91-19, Bogotá
+GestionSedes.Sede1.HoraInicio= 6:30
+GestionSedes.Sede1.HoraCierre= 22:30
+
+GestionSedes.Sede2.Numeral= 2
+GestionSedes.Sede2.Nombre= CHIA
+GestionSedes.Sede2.Ubicacion= Cra 69 # 80 - 45, CHÍA
+GestionSedes.Sede2.HoraInicio= 8:00
+GestionSedes.Sede2.HoraCierre= 19:00
+
+GestionSedes.Sede3.Numeral= 3
+GestionSedes.Sede3.Nombre= SANTAFE
+GestionSedes.Sede3.Ubicacion= Cl. 19 #2a - 10, Bogotá
+GestionSedes.Sede3.HoraInicio= 7:15
+GestionSedes.Sede3.HoraCierre= 20:45

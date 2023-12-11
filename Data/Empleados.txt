@@ -1,0 +1,19 @@
+GestionEmpleados.cantidadEmpleados=3
+
+GestionEmpleados.Empleado1.Numeral= 1
+GestionEmpleados.Empleado1.Nombres= Pocoyo
+GestionEmpleados.Empleado1.Apellidos= Dangón Rodriguéz
+GestionEmpleados.Empleado1.Usuario= P0C0Y0
+GestionEmpleados.Empleado1.Contraseña= 484326
+
+GestionEmpleados.Empleado2.Numeral= 2
+GestionEmpleados.Empleado2.Nombres= Shakira Becky
+GestionEmpleados.Empleado2.Apellidos= Gonzaléz Ávila
+GestionEmpleados.Empleado2.Usuario= NOPIQUE4EVER
+GestionEmpleados.Empleado2.Contraseña= 176461
+
+GestionEmpleados.Empleado3.Numeral= 3
+GestionEmpleados.Empleado3.Nombres= María Jóse
+GestionEmpleados.Empleado3.Apellidos= Antonieta Asunción
+GestionEmpleados.Empleado3.Usuario= R3VP03T1C4
+GestionEmpleados.Empleado3.Contraseña= 937401
