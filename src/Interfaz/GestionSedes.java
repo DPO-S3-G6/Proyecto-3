@@ -8,6 +8,9 @@ import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.event.ActionEvent
 public class GestionSedes extends JFrame implements ActionListener{
+
+    private JPanel plNavegacion;
+    private JPanel plGestion;
     
     private JButton btnAnadir;
 	private JButton btnBuscar;
@@ -15,6 +18,19 @@ public class GestionSedes extends JFrame implements ActionListener{
     private JButton btnBorrar;
     private JButton btnSalir;
     
+    private JLabel lblTitle;
+    private JLabel lblNum;
+    private JLabel lblUbi;
+    private JLabel lblHor;
+    private JLabel lblPla;
+    private JLabel lblNom;
+
+    private JTextField txtNom;
+    private JTextField txtNum;
+    private JTextField txtUbi;
+    private JTextField txtHor;
+    private JTextField txtPla;
+
     public GestionSedes()
     {
     	setSize( 750, 600 );
@@ -23,36 +39,52 @@ public class GestionSedes extends JFrame implements ActionListener{
 
         setLayout(new BorderLayout());
 
+        pnlGestion.setLayout( new GridLayout( 19, 1 ) );
+        pnlGestion.setBorder();
+
+        pnlGestion.add(new JLabel());
+        lblTitle=new JLabel("Gestión Sedes");
+        pnlGestion.add(lblTitle);
+        pnlGestion.add(new JLabel());
+        lblNum=new JLabel("Numeral");
+        pnlGestion.add(lblNum);
+        txtNum=new JTextField("");
+        txtNum.setEditable( true );
+        pnlGestion.add(txtNum);
+        lblNom=new JLabel("Nombre");
+        pnlGestion.add(lblNom);
+        txtNom=new JTextField("");
+        txtNom.setEditable( true );
+        pnlGestion.add(txtNom);
+        lblUbi=new JLabel("Ubicación");
+        pnlGestion.add(lblUbi);
+        txtUbi=new JTextField("");
+        txtUbi.setEditable( true );
+        pnlGestion.add(txtUbi);
+        lblHor=new JLabel("Hora Inicio");
+        pnlGestion.add(lblHor);
+        txtHor=new JTextField("");
+        txtHor.setEditable( true );
+        pnlGestion.add(txtHor);
+        lblPla=new JLabel("Placa");
+        pnlGestion.add(lblPla);
+        txtPla=new JTextField("");
+        txtPla.setEditable( true );
+        pnlGestion.add(txtPla);
+        pnlGestion.add(new JLabel());
         btnAnadir= new JButton ("Añadir");
-        add(btnAnadir, BorderLayout.CENTER);
-
-        btnAnadir.addActionListener( this );
-        btnAnadir.setActionCommand( "An" );
-
+        pnlGestion.add(btnAnadir, BorderLayout.CENTER);
         btnBuscar= new JButton ("BUSCAR");
-        add(btnBuscar, BorderLayout.CENTER);
-
-        btnBuscar.addActionListener( this );
-        btnBuscar.setActionCommand( "Bu" );
-
+        pnlGestion.add(btnBuscar, BorderLayout.CENTER);
         btnActualizar = new JButton ("ACTUALIZAR");
-        add(btnActualizar, BorderLayout.CENTER);
-
-        btnActualizar.addActionListener( this );
-        btnActualizar.setActionCommand( "Ac" );
-
+        pnlGestion.add(btnActualizar, BorderLayout.CENTER);
         btnBorrar= new JButton ("BORRAR");
-        add(btnBorrar, BorderLayout.CENTER);
-
-        btnBorrar.addActionListener( this );
-        btnBorrar.setActionCommand( "Bo" );
-
-        btnSalir = new JButton ("SALIR");
-        add(btnSalir, BorderLayout.CENTER);
-
-        btnSalir.addActionListener( this );
-        btnSalir.setActionCommand( "SALIR" );
-    	
+        pnlGestion.add(btnBorrar, BorderLayout.CENTER);
+        pnlGestion.add(new JLabel());
+        
+        //panel datos mostrados
+        pnlDatos= new JPanel( );
+        add(pnlDatos,BorderLayout.CENTER);
     }
     
     public void actionPerformed( ActionEvent evento )
