@@ -16,7 +16,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-public class MenuCliente extends JLabel implements ActionListener  
+public class MenuCliente extends JFrame  
 {
 	private JButton btnReservarVehiculo;
 	private JButton btnConsultarPerfil;
@@ -26,7 +26,6 @@ public class MenuCliente extends JLabel implements ActionListener
 	private JLabel lblTitulo;
 	
 
-	
 	private ReservaVehiculoCliente reservarVehiculo;
 	private Reserva consultarReserva;
 	private Perfil consultarPerfil;
@@ -34,12 +33,21 @@ public class MenuCliente extends JLabel implements ActionListener
 	
 	
 	
-	
-	
 	public MenuCliente ()    
 	{
 		
-		//setSize(750, 600);
+		this.setContentPane(new ImagenFondo());
+		
+		setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+        getComponents();
+        this.dispose();
+        setResizable(false);
+        
+        setSize(600,600);
+        setLocationRelativeTo( null );
+		
+		
+		
 		setLayout(new BorderLayout());
 		
 		JPanel panelArriba = new JPanel();
@@ -55,19 +63,28 @@ public class MenuCliente extends JLabel implements ActionListener
 		
 		JPanel panelIzquierdo = new JPanel();
 		add(panelIzquierdo, BorderLayout.WEST);
-		panelIzquierdo.setLayout(new GridLayout(2,1));
+		//panelIzquierdo.setLayout(new GridLayout(2,1));
+		panelIzquierdo.setPreferredSize(new Dimension (200,50));
+		panelIzquierdo.setOpaque(false);
+		
+		JPanel panelIzquierdo_Arriba = new JPanel();
+		panelIzquierdo.add(panelIzquierdo_Arriba);
+		panelIzquierdo_Arriba.setLayout(new GridLayout(1,1));
+		panelIzquierdo_Arriba.setPreferredSize(new Dimension (200,100));
+		
+		JPanel panelIzquierdo_Abajo = new JPanel();
+		panelIzquierdo.add(panelIzquierdo_Abajo);
+		panelIzquierdo_Abajo.setLayout(new GridLayout(1,1));
+		panelIzquierdo_Abajo.setPreferredSize(new Dimension (200,100));
+		
 		
 		btnReservarVehiculo = new JButton ("RESERVAR VEHICULO");
 		btnReservarVehiculo.setPreferredSize(new Dimension (50,10));
-		btnReservarVehiculo.setActionCommand("OPCION_1");
-		btnReservarVehiculo.addActionListener(this);
-		panelIzquierdo.add(btnReservarVehiculo, BorderLayout.NORTH);
+		panelIzquierdo_Arriba.add(btnReservarVehiculo, BorderLayout.NORTH);
 		
 		btnVerReserva = new JButton ("VER RESERVA");
 		btnVerReserva.setPreferredSize(new Dimension (50,10));
-		btnVerReserva.setActionCommand("OPCION_2");
-		btnVerReserva.addActionListener(this);
-		panelIzquierdo.add(btnVerReserva, BorderLayout.SOUTH);
+		panelIzquierdo_Abajo.add(btnVerReserva, BorderLayout.SOUTH);
 		
 		
 		
@@ -77,7 +94,8 @@ public class MenuCliente extends JLabel implements ActionListener
 		JPanel panelDerecho = new JPanel();
 		add(panelDerecho, BorderLayout.EAST);
 		//panelDerecho.setLayout(new GridLayout(2,1));
-		panelDerecho.setPreferredSize(new Dimension (200,100));
+		panelDerecho.setPreferredSize(new Dimension (200,50));
+		panelDerecho.setOpaque(false);
 		
 		JPanel panelDerecho_Arriba = new JPanel();
 		panelDerecho.add(panelDerecho_Arriba);
@@ -91,73 +109,47 @@ public class MenuCliente extends JLabel implements ActionListener
 		
 		btnConsultarPerfil = new JButton ("CONSULTAR PERFIL");
 		btnConsultarPerfil.setPreferredSize(new Dimension (50,10));
-		btnConsultarPerfil.setActionCommand("OPCION_3");
-		btnConsultarPerfil.addActionListener(this);
 		panelDerecho_Arriba.add(btnConsultarPerfil, BorderLayout.NORTH);
 
 	    btnSalir = new JButton ("SALIR");
 	    btnSalir.setPreferredSize(new Dimension (50,10));
-	    btnSalir.setActionCommand("OPCION_4");
-	    btnSalir.addActionListener(this);
 	    panelDerecho_Abajo.add(btnSalir, BorderLayout.SOUTH);
 
-	    
-	    
-	    
-	    
-	    
-	    
+
 	    
 	}
 	
 	
-	
-	public void paint (Graphics g)
-	{
-		
-		ImageIcon imagen = new ImageIcon(getClass().getResource("/images/background_3.png"));
-		g.drawImage(imagen.getImage(), 0, 0, getWidth(), getHeight(), this);
-		
-		
-		setOpaque(false);
-		super.paint(g);
-		
-	}
     
 	
     public static void main(String[] args)
     {
-    	JFrame ventana = new JFrame("MENU ADMIN GENERAL");
-    	MenuCliente inicio = new MenuCliente();
-        ventana.setContentPane(inicio);
-        ventana.setSize(600,600);
-        ventana.setLocationRelativeTo( null );
-        ventana.setVisible( true );
-        ventana.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+    	java.awt.EventQueue.invokeLater(new Runnable()
+    	{
+    		public void run() {
+    			new MenuCliente().setVisible(true);
+    		}
+    	});
+    	
+    }
+    
+   
+    public class ImagenFondo extends JPanel
+    {
+    	public void paint (Graphics g) 
+    	{
+    		
+    		ImageIcon imagen = new ImageIcon(getClass().getResource("/images/background_3.png"));
+    		
+    		g.drawImage(imagen.getImage(), 0, 0, getWidth(), getHeight(), this);
+    		
+    		
+    		setOpaque(false);
+    		super.paint(g);
+    		
+    	}
     }
     
     
     
-    
-
- 
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	
-	
-	
-	
-	
-	
-	
-	
-
-    
-
-
 }

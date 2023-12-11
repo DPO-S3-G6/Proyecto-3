@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.Icon;
 
-public class VentanaPrincipal_1 extends JLabel implements ActionListener
+public class VentanaPrincipal_1 extends JFrame 
 {
 	private JButton btnAdminGeneral;
 	private JButton btnAdminLocal;
@@ -38,8 +38,19 @@ public class VentanaPrincipal_1 extends JLabel implements ActionListener
 	public VentanaPrincipal_1( )      
 	{
 		
+		this.setContentPane(new ImagenFondo());
 		
-		//setSize(750, 600);
+		setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+        getComponents();
+        this.dispose();
+        setResizable(false);
+        
+        setSize(600,600);
+        setLocationRelativeTo( null );
+        
+        
+        
+        
 		setLayout(new BorderLayout());
 		
 		JPanel panelDerecha = new JPanel();
@@ -49,27 +60,27 @@ public class VentanaPrincipal_1 extends JLabel implements ActionListener
 		
 		btnAdminGeneral = new JButton ("ADMINISTRADOR GENERAL");
 		btnAdminGeneral.setPreferredSize(new Dimension (10,10));
-		btnAdminGeneral.setActionCommand("OPCION_1");
-		btnAdminGeneral.addActionListener(this);
+		//btnAdminGeneral.addActionListener(this);
+		//btnAdminGeneral.setActionCommand("OPCION_1");
 		panelDerecha.add(btnAdminGeneral);
 		
 
 	    btnAdminLocal = new JButton ("ADMINISTRADOR LOCAL");
 	    btnAdminLocal.setPreferredSize(new Dimension (10,10));
-	    btnAdminLocal.setActionCommand("OPCION_2");
-	    btnAdminLocal.addActionListener(this);
+	    //btnAdminLocal.setActionCommand("OPCION_2");
+	    //btnAdminLocal.addActionListener(this);
 	    panelDerecha.add(btnAdminLocal);
 
 	    btnCliente = new JButton ("EMPLEADO");
 	    btnCliente.setPreferredSize(new Dimension (10,10));
-	    btnCliente.setActionCommand("OPCION_3");
-	    btnCliente.addActionListener(this);
+	    //btnCliente.setActionCommand("OPCION_3");
+	    //btnCliente.addActionListener(this);
 	    panelDerecha.add(btnCliente);
 
 	    btnEmpleado = new JButton ("CLIENTE");
 	    btnEmpleado.setPreferredSize(new Dimension (200,30));
-	    btnEmpleado.setActionCommand("OPCION_4");
-	    btnEmpleado.addActionListener(this);
+	    //btnEmpleado.setActionCommand("OPCION_4");
+	    //btnEmpleado.addActionListener(this);
 	    panelDerecha.add(btnEmpleado);
 	    
 	    JPanel panelIzquierda = new JPanel();
@@ -82,83 +93,80 @@ public class VentanaPrincipal_1 extends JLabel implements ActionListener
 		add(panelIzquierda, BorderLayout.WEST);
 	    
 	    
+		btnAdminGeneral.addActionListener(oyente);
+		btnAdminLocal.addActionListener(oyente);
+		btnCliente.addActionListener(oyente);
+		btnEmpleado.addActionListener(oyente);
 	}
 	
 	
 	
-	public void paint (Graphics g)
-	{
-		
-		ImageIcon imagen = new ImageIcon(getClass().getResource("/images/background.png"));
-		g.drawImage(imagen.getImage(), 0, 0, getWidth(), getHeight(), this);
-		
-		
-		setOpaque(false);
-		super.paint(g);
-		
-	}
-    
-	
+
+
     public static void main(String[] args)
     {
-    	JFrame ventana = new JFrame("MENU");
-        VentanaPrincipal_1 inicio = new VentanaPrincipal_1();
-        ventana.setContentPane(inicio);
-        ventana.setSize(600,600);
-        ventana.setLocationRelativeTo( null );
-        
-      
-        ventana.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
-        
-        java.awt.EventQueue.invokeLater(new Runnable()
-        {
-
-			@Override
-			public void run() {
-				// TODO Auto-generated method stub
-				
-			}
-        	
-        });
-
+    	java.awt.EventQueue.invokeLater(new Runnable()
+    	{
+    		public void run() {
+    			new VentanaPrincipal_1().setVisible(true);
+    		}
+    	});
+    	
     }
     
     
     
-
     
-
     
-    public void actionPerformed( ActionEvent e)
+    public class ImagenFondo extends JPanel
     {
     	
-    	//empleado = pEmpleado;
-    	//cliente = pCliente;
-    	//adminLocal = pAdminLocal;
-    	//adminGeneral = pAdminGeneral;
-    	
-        // TODO Auto-generated method stub
-        if(e.getActionCommand( ).equals( "OPCION_1" ))
-        {
-        	MenuEmpleado MAG = new MenuEmpleado();
-			MAG.setVisible(true);
+    	public void paint (Graphics g)
+    	{
+    		
+    		ImageIcon imagen = new ImageIcon(getClass().getResource("/images/background.png"));
+    		g.drawImage(imagen.getImage(), 0, 0, getWidth(), getHeight(), this);
+    		setOpaque(false);
+    		super.paint(g);
+    		
+    	}
         	
-        }
-        
-        
     }
-
-
-
-
-
-
-
-	
-
-
-
-	
+    
+    
+  
+    
+    ActionListener oyente = new ActionListener() 
+    {
+		@Override
+		public void actionPerformed(ActionEvent e) 
+		{
+			// TODO Auto-generated method stub
+			if (e.getSource() == btnAdminGeneral) 
+			{
+				MenuAdministradorGeneral MAG = new MenuAdministradorGeneral();
+				MAG.setVisible(true);
+			}
+			
+			else if (e.getSource() == btnAdminLocal)
+			{
+				MenuAdministradorLocal MAL = new MenuAdministradorLocal();
+				MAL.setVisible(true);
+			}
+			
+			else if (e.getSource() == btnEmpleado)
+			{
+				MenuEmpleado ME = new MenuEmpleado();
+				ME.setVisible(true);
+			}
+			
+			else if (e.getSource() == btnCliente)
+			{
+				MenuCliente MC = new MenuCliente();
+				MC.setVisible(true);
+			}
+		}
+    };
    
 }
 

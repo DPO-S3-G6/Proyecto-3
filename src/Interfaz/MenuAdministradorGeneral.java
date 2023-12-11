@@ -16,7 +16,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-public class MenuAdministradorGeneral extends JLabel implements ActionListener  
+public class MenuAdministradorGeneral extends JFrame  
 {
 	private JButton btnGestionarInv;
 	private JButton btnGestionarSede;
@@ -28,18 +28,24 @@ public class MenuAdministradorGeneral extends JLabel implements ActionListener
 	
 	private GestionVehiculos gestionVehiculo;
 	private GestionSedes gestionSede;
-	
-	
-	
-	
+
 	
 	
 	public MenuAdministradorGeneral ()    
 	{
 		
-		
-		//setSize(750, 600);
-		setLayout(new BorderLayout());
+        setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+        getComponents();
+        this.dispose();
+        setResizable(false);
+        
+        setSize(600,600);
+        setLocationRelativeTo( null );
+
+        
+        
+        
+        setLayout(new BorderLayout());
 		
 		JPanel panelArriba = new JPanel();
 		add(panelArriba, BorderLayout.NORTH);
@@ -56,19 +62,19 @@ public class MenuAdministradorGeneral extends JLabel implements ActionListener
 		btnGestionarInv = new JButton ("GESTIONAR INVENTARIO");
 		btnGestionarInv.setPreferredSize(new Dimension (50,10));
 		btnGestionarInv.setActionCommand("OPCION_1");
-		btnGestionarInv.addActionListener(this);
+		//btnGestionarInv.addActionListener(this);
 		panelCentral.add(btnGestionarInv);
 		
 		btnGestionarSede = new JButton ("GESTIONAR SEDE");
 		btnGestionarSede.setPreferredSize(new Dimension (50,10));
 		btnGestionarSede.setActionCommand("OPCION_2");
-		btnGestionarSede.addActionListener(this);
+		//btnGestionarSede.addActionListener(this);
 		panelCentral.add(btnGestionarSede);
-
+		
 	    btnSalir = new JButton ("SALIR");
 	    btnSalir.setPreferredSize(new Dimension (50,10));
 	    btnSalir.setActionCommand("OPCION_3");
-	    btnSalir.addActionListener(this);
+	    //btnSalir.addActionListener(this);
 	    panelCentral.add(btnSalir);
 
 	    
@@ -80,10 +86,9 @@ public class MenuAdministradorGeneral extends JLabel implements ActionListener
 	    etiquetaImagen.repaint();
 	    panelDerecha.add(etiquetaImagen);
 		add(panelDerecha, BorderLayout.WEST);
-	    
+
 	    
 	}
-	
 	
 	
 	public void paint (Graphics g)
@@ -93,45 +98,26 @@ public class MenuAdministradorGeneral extends JLabel implements ActionListener
 		g.drawImage(imagen.getImage(), 0, 0, getWidth(), getHeight(), this);
 		
 		
-		setOpaque(false);
+		//setOpaque(false);
 		super.paint(g);
 		
 	}
-    
+
+
+	
+	
+
 	
     public static void main(String[] args)
     {
-    	JFrame ventana = new JFrame("MENU ADMIN GENERAL");
-    	MenuAdministradorGeneral inicio = new MenuAdministradorGeneral();
-        ventana.setContentPane(inicio);
-        ventana.setSize(600,600);
-        ventana.setLocationRelativeTo( null );
-        ventana.setVisible( true );
-        ventana.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+    	java.awt.EventQueue.invokeLater(new Runnable()
+    	{
+    		public void run() {
+    			new MenuAdministradorGeneral().setVisible(true);
+    		}
+    	});
+    	
     }
     
-    
-    
-    
-
- 
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	
-	
-	
-	
-	
-	
-	
-	
-
-    
-
-
 }
+
