@@ -19,7 +19,7 @@ public class GestionVehiculos extends JFrame implements ActionListener{
 
     private JPanel pnlGestion;
     private JPanel pnlDatos;
-    private JPanel 
+    private JPanel pnlTabla:
 
     private JButton btnAnadir;
 	private JButton btnBuscar;
@@ -59,66 +59,77 @@ public class GestionVehiculos extends JFrame implements ActionListener{
         setDefaultCloseOperation( EXIT_ON_CLOSE );
     	
         //panel Gestión escirtura y criterios
-        pnlGestion.setLayout( new GridLayout( 31, 1 ) );
-        pnlGestion.setBorder();
-
         pnlGestion.add(new JLabel());
         lblTitle=new JLabel("Gestión Vehículos");
+        add(pnlGestion,BorderLayout.EAST)
+        pnlGestion.setLayout( new GridLayout( 31, 1 ) );
+        pnlGestion.setBorder();
         pnlGestion.add(lblTitle);
         pnlGestion.add(new JLabel());
         lblNum=new JLabel("Numeral");
         pnlGestion.add(lblNum);
         txtNum=new JTextField("");
+        txtNum.setBackground( Color.WHITE )
         txtNum.setEditable( true );
         pnlGestion.add(txtNum);
         lblCar=new JLabel("Carro");
         pnlGestion.add(lblCar);
         txtCar=new JTextField("");
+        txtCar.setBackground( Color.WHITE )
         txtCar.setEditable( true );
         pnlGestion.add(txtCar);
         lblMar=new JLabel("Marca");
         pnlGestion.add(lblMar);
         txtMar=new JTextField("");
+        txtMar.setBackground( Color.WHITE )
         txtMar.setEditable( true );
         pnlGestion.add(txtMar);
         lblCat=new JLabel("Categoría");
         pnlGestion.add(lblCat);
         txtCat=new JTextField("");
+        txtCat.setBackground( Color.WHITE )
         txtCat.setEditable( true );
         pnlGestion.add(txtCat);
         lblPla=new JLabel("Placa");
         pnlGestion.add(lblPla);
         txtPla=new JTextField("");
+        txtPla.setBackground( Color.WHITE )
         txtPla.setEditable( true );
         pnlGestion.add(txtPla);
         lblCol=new JLabel("Color");
         pnlGestion.add(lblCol);
         txtCol=new JTextField("");
+        txtCol.setBackground( Color.WHITE )
         txtCol.setEditable( true );
         pnlGestion.add(txtCol);
         lblCap=new JLabel("Capacidad");
         pnlGestion.add(lblCap);
         txtCap=new JTextField("");
+        txtCap.setBackground( Color.WHITE )
         txtCap.setEditable( true );
         pnlGestion.add(txtCap);
         lblTam=new JLabel("Tamaño");
         pnlGestion.add(lblTam);
         txtTam=new JTextField("");
+        txtTam.setBackground( Color.WHITE )
         txtTam.setEditable( true );
         pnlGestion.add(txtTam);
         lblTra=new JLabel("Transmisión");
         pnlGestion.add(lblTra);
         txtTra=new JTextField("");
+        txtTra.setBackground( Color.WHITE )
         txtTra.setEditable( true );
         pnlGestion.add(txtTra);
         lblEst=new JLabel("Estado");
         pnlGestion.add(lblEst);
         txtEst=new JTextField("");
+        txtEst.setBackground( Color.WHITE )
         txtEst.setEditable( true );
         pnlGestion.add(txtEst);
         lblDis=new JLabel("Disponibilidad");
         pnlGestion.add(lblDis);
         txtDis=new JTextField("");
+        txtDis.setBackground( Color.WHITE )
         txtDis.setEditable( true );
         pnlGestion.add(txtDis);
         pnlGestion.add(new JLabel());
@@ -139,6 +150,59 @@ public class GestionVehiculos extends JFrame implements ActionListener{
         //panel datos mostrados
         pnlDatos= new JPanel( );
         add(pnlDatos,BorderLayout.CENTER);
+        pnlDatos.setLayout( new GridLayout( 3, 3 ) );
+        pnlDatos.add(new JLabel());
+        pnlDatos.add(new JLabel());
+        pnlDatos.add(new JLabel());
+        pnlDatos.add(new JLabel());
+        pnlTabla= new JPanel( );
+        add(pnlTabla,BorderLayout.CENTER);
+        pnlDatos.add(pnlTabla);
+        pnlDatos.add(new JLabel());
+        pnlDatos.add(new JLabel());
+        pnlDatos.add(new JLabel());
+        pnlDatos.add(new JLabel());
+
+        //panel Tabla datos
+        pnlTabla.setLayout( new GridLayout( 6, 11 ) );
+        lblNum.setBackground( Color.BLACK )
+        lblNum.setForeground( Color.WHITE )
+        pnlDatos.add(lblNum);
+        lblCar.setBackground( Color.BLACK )
+        lblCar.setForeground( Color.WHITE )
+        pnlDatos.add(lblCar);
+        lblMar.setBackground( Color.BLACK )
+        lblMar.setForeground( Color.WHITE )
+        pnlDatos.add(lblMar);
+        lblCat.setBackground( Color.BLACK )
+        lblCat.setForeground( Color.WHITE )
+        pnlDatos.add(lblCat);
+        lblPla.setBackground( Color.BLACK )
+        lblPla.setForeground( Color.WHITE )
+        pnlDatos.add(lblPla);
+        lblCol.setBackground( Color.BLACK )
+        lblCol.setForeground( Color.WHITE )
+        pnlDatos.add(lblCol);
+        lblCap.setBackground( Color.BLACK )
+        lblCap.setForeground( Color.WHITE )
+        pnlDatos.add(lblCap);
+        lblTam.setBackground( Color.BLACK )
+        lblTam.setForeground( Color.WHITE )
+        pnlDatos.add(lblTam);
+        lblTra.setBackground( Color.BLACK )
+        lblTra.setForeground( Color.WHITE )
+        pnlDatos.add(lblTra);
+        lblEst.setBackground( Color.BLACK )
+        lblEst.setForeground( Color.WHITE )
+        pnlDatos.add(lblEst);
+        lblDis.setBackground( Color.BLACK )
+        lblDis.setForeground( Color.WHITE )
+        pnlDatos.add(lblDis);
+        
+
+
+
+
 
 
 
