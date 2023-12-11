@@ -16,7 +16,9 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-public class MenuAdministradorLocal extends JLabel implements ActionListener  
+import Interfaz.VentanaPrincipal_1.ImagenFondo;
+
+public class MenuAdministradorLocal extends JFrame
 {
 	private JButton btnGestionarEmple;
 	private JButton btnSalir;
@@ -24,22 +26,23 @@ public class MenuAdministradorLocal extends JLabel implements ActionListener
 	private JLabel lblTitulo;
 	
 
-	
-	private GestionEmpleados gestionEmpleado;
-	
-	
-	
-	
-	
-	
-	
+
 	public MenuAdministradorLocal ()    
 	{
 		
+		this.setContentPane(new ImagenFondo());
 		
-		//setSize(750, 600);
+		
+		setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+		getComponents();
+        this.dispose();
+        setResizable(false);
+        
 		setLayout(new BorderLayout());
-		
+		setSize(1250,800);
+        setLocationRelativeTo( null );
+        
+        
 		JPanel panelArriba = new JPanel();
 		add(panelArriba, BorderLayout.NORTH);
 		
@@ -54,15 +57,11 @@ public class MenuAdministradorLocal extends JLabel implements ActionListener
 		
 		btnGestionarEmple = new JButton ("GESTIONAR EMPLEADOS");
 		btnGestionarEmple.setPreferredSize(new Dimension (50,10));
-		btnGestionarEmple.setActionCommand("OPCION_1");
-		btnGestionarEmple.addActionListener(this);
 		panelCentral.add(btnGestionarEmple);
 		
 
 	    btnSalir = new JButton ("SALIR");
 	    btnSalir.setPreferredSize(new Dimension (50,10));
-	    btnSalir.setActionCommand("OPCION_3");
-	    btnSalir.addActionListener(this);
 	    panelCentral.add(btnSalir);
 
 	    
@@ -76,56 +75,69 @@ public class MenuAdministradorLocal extends JLabel implements ActionListener
 		add(panelDerecha, BorderLayout.EAST);
 	    
 	    
+		
+		btnGestionarEmple.addActionListener(oyente);
+		btnSalir.addActionListener(oyente);
+		
 	}
 	
 	
 	
-	public void paint (Graphics g)
-	{
-		
-		ImageIcon imagen = new ImageIcon(getClass().getResource("/images/background_2.png"));
-		g.drawImage(imagen.getImage(), 0, 0, getWidth(), getHeight(), this);
-		
-		
-		setOpaque(false);
-		super.paint(g);
-		
-	} 
-    
-	
     public static void main(String[] args)
     {
-    	JFrame ventana = new JFrame("MENU ADMIN GENERAL");
-    	MenuAdministradorLocal inicio = new MenuAdministradorLocal();
-        ventana.setContentPane(inicio);
-        ventana.setSize(600,600);
-        ventana.setLocationRelativeTo( null );
-        ventana.setVisible(  );
-        ventana.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+    	java.awt.EventQueue.invokeLater(new Runnable()
+    	{
+    		public void run() {
+    			new MenuAdministradorLocal().setVisible(true);
+    		}
+    	});
+    	
     }
     
     
     
+    public class ImagenFondo extends JPanel
+    {
+    	
+    	public void paint (Graphics g)
+    	{
+    		
+    		ImageIcon imagen = new ImageIcon(getClass().getResource("/images/background.png"));
+    		g.drawImage(imagen.getImage(), 0, 0, getWidth(), getHeight(), this);
+    		setOpaque(false);
+    		super.paint(g);
+    		
+    	}
+        	
+    }
     
+    
+    
+    ActionListener oyente = new ActionListener() 
+    {
+		@Override
+		public void actionPerformed(ActionEvent e) 
+		{
+			// TODO Auto-generated method stub
+			if (e.getSource() == btnGestionarEmple) 
+			{
+				GestionEmpleados GE = new GestionEmpleados();
+				GE.setVisible(true);
+				dispose();
+			}		
+			else if (e.getSource() == btnSalir)
+			{
+				VentanaPrincipal_1 VP = new VentanaPrincipal_1();
+				VP.setVisible(true);
+				dispose();
+			}
+		}
 
- 
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
 		
-	}
+    };
 
-	
-	
-	
-	
-	
-	
-	
-	
 
-    
+   
 
 
 }

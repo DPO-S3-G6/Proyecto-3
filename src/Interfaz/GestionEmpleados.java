@@ -46,7 +46,7 @@ public class GestionEmpleados extends JFrame implements ActionListener{
         setDefaultCloseOperation( EXIT_ON_CLOSE );
         setLayout(new BorderLayout());
 
-        b        pnlGestion.setLayout( new GridLayout( 19, 1 ) );
+        bpnlGestion.setLayout( new GridLayout( 19, 1 ) );
         pnlGestion.setBorder();
 
         pnlGestion.add(new JLabel());
