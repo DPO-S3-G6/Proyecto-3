@@ -14,18 +14,6 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>Data/th.jpg</name>
-			<type>1</type>
-			<locationURI>PARENT-5-PROJECT_LOC/Downloads/th.jpg</locationURI>
-		</link>
-		<link>
-			<name>src/images/th.jpg</name>
-			<type>1</type>
-			<locationURI>PARENT-5-PROJECT_LOC/Downloads/th.jpg</locationURI>
-		</link>
-	</linkedResources>
 	<filteredResources>
 		<filter>
 			<id>1702250883360</id>
