@@ -1,0 +1,24 @@
+:0:0:0:0:0:0:0:0:0
+Apellido: 0
+Email: 0
+Número: 0
+Fecha de nacimiento: 0
+Nacionalidad: 0
+Tipo de Pago: 0
+Username: 0
+Password: 0
+Licencia de conducción: 0
+ID: 0
+----------------------------------
+Nombre: 11
+Apellido: 1
+Email: 1
+Número: 1
+Fecha de nacimiento: 1
+Nacionalidad: 1
+Tipo de Pago: 1
+Username: 
+Password: 1
+Licencia de conducción: 1
+ID: 1
+----------------------------------

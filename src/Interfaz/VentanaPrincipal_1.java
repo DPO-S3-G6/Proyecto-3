@@ -151,9 +151,10 @@ public class VentanaPrincipal_1 extends JFrame
 		@Override
 		public void actionPerformed(ActionEvent e) 
 		{
-			// TODO Auto-generated method stub
 			if (e.getSource() == btnAdminGeneral) 
 			{
+				Perfil perfil =  new Perfil();
+				perfil.setVisible(true);
 				MenuAdministradorGeneral MAG = new MenuAdministradorGeneral();
 				MAG.setVisible(true);
 				dispose();
@@ -161,6 +162,8 @@ public class VentanaPrincipal_1 extends JFrame
 			
 			else if (e.getSource() == btnAdminLocal)
 			{
+				Perfil perfil =  new Perfil();
+				perfil.setVisible(true);
 				MenuAdministradorLocal MAL = new MenuAdministradorLocal();
 				MAL.setVisible(true);
 				dispose();
@@ -168,13 +171,17 @@ public class VentanaPrincipal_1 extends JFrame
 			
 			else if (e.getSource() == btnEmpleado)
 			{
+				Perfil perfil =  new Perfil();
+				perfil.setVisible(true);
 				MenuEmpleado ME = new MenuEmpleado();
 				ME.setVisible(true);
 				dispose();
 			}
 			
 			else if (e.getSource() == btnCliente)
-			{
+			{	
+				Perfil perfil =  new Perfil();
+				perfil.setVisible(true);
 				MenuCliente MC = new MenuCliente();
 				MC.setVisible(true);
 				dispose();
@@ -184,11 +191,6 @@ public class VentanaPrincipal_1 extends JFrame
 		
     };
 
-    
-    
- 
-	
-   
 }
 
 
