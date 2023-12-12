@@ -16,7 +16,25 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-public class MenuAdministradorGeneral extends JLabel implements ActionListener  
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.GridLayout;
+import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+
+import Interfaz.MenuCliente.ImagenFondo;
+
+public class MenuAdministradorGeneral extends JFrame  
 {
 	private JButton btnGestionarInv;
 	private JButton btnGestionarSede;
@@ -28,24 +46,31 @@ public class MenuAdministradorGeneral extends JLabel implements ActionListener
 	
 	private GestionVehiculos gestionVehiculo;
 	private GestionSedes gestionSede;
-	
-	
-	
-	
+
 	
 	
 	public MenuAdministradorGeneral ()    
 	{
+		this.setContentPane(new ImagenFondo());
 		
-		
-		//setSize(750, 600);
-		setLayout(new BorderLayout());
+        setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+        getComponents();
+        this.dispose();
+        setResizable(false);
+        
+        setSize(1250,800);
+        setLocationRelativeTo( null );
+
+        
+        
+        
+        setLayout(new BorderLayout());
 		
 		JPanel panelArriba = new JPanel();
 		add(panelArriba, BorderLayout.NORTH);
 		
 		lblTitulo = new JLabel("BIENVENIDO DEVUELTA ADMIN GENERAL");
-		lblTitulo.setPreferredSize(new Dimension (300,20));
+		lblTitulo.setPreferredSize(new Dimension (150,20));
 		panelArriba.add(lblTitulo);
 
 		
@@ -55,20 +80,14 @@ public class MenuAdministradorGeneral extends JLabel implements ActionListener
 		
 		btnGestionarInv = new JButton ("GESTIONAR INVENTARIO");
 		btnGestionarInv.setPreferredSize(new Dimension (50,10));
-		btnGestionarInv.setActionCommand("OPCION_1");
-		btnGestionarInv.addActionListener(this);
 		panelCentral.add(btnGestionarInv);
 		
 		btnGestionarSede = new JButton ("GESTIONAR SEDE");
 		btnGestionarSede.setPreferredSize(new Dimension (50,10));
-		btnGestionarSede.setActionCommand("OPCION_2");
-		btnGestionarSede.addActionListener(this);
 		panelCentral.add(btnGestionarSede);
-
+		
 	    btnSalir = new JButton ("SALIR");
 	    btnSalir.setPreferredSize(new Dimension (50,10));
-	    btnSalir.setActionCommand("OPCION_3");
-	    btnSalir.addActionListener(this);
 	    panelCentral.add(btnSalir);
 
 	    
@@ -80,58 +99,84 @@ public class MenuAdministradorGeneral extends JLabel implements ActionListener
 	    etiquetaImagen.repaint();
 	    panelDerecha.add(etiquetaImagen);
 		add(panelDerecha, BorderLayout.WEST);
-	    
+
+		
+		
+		btnGestionarInv.addActionListener(oyente);
+		btnGestionarSede.addActionListener(oyente);
+		btnSalir.addActionListener(oyente);
+		
 	    
 	}
 	
 	
-	
-	public void paint (Graphics g)
-	{
-		
-		ImageIcon imagen = new ImageIcon(getClass().getResource("/images/background_2.png"));
-		g.drawImage(imagen.getImage(), 0, 0, getWidth(), getHeight(), this);
-		
-		
-		setOpaque(false);
-		super.paint(g);
-		
-	}
-    
 	
     public static void main(String[] args)
     {
-    	JFrame ventana = new JFrame("MENU ADMIN GENERAL");
-    	MenuAdministradorGeneral inicio = new MenuAdministradorGeneral();
-        ventana.setContentPane(inicio);
-        ventana.setSize(600,600);
-        ventana.setLocationRelativeTo( null );
-        ventana.setVisible( true );
-        ventana.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+    	java.awt.EventQueue.invokeLater(new Runnable()
+    	{
+    		public void run() {
+    			new MenuAdministradorGeneral().setVisible(true);
+    		}
+    	});
+    	
     }
     
     
     
     
+    public class ImagenFondo extends JPanel
+    {
+    	public void paint (Graphics g) 
+    	{
+    		
+    		ImageIcon imagen = new ImageIcon(getClass().getResource("/images/background_3.png"));
+    		
+    		g.drawImage(imagen.getImage(), 0, 0, getWidth(), getHeight(), this);
+    		
+    		
+    		setOpaque(false);
+    		super.paint(g);
+    		
+    	}
+    }
+    
+   
+    ActionListener oyente = new ActionListener() 
+    {
+		@Override
+		public void actionPerformed(ActionEvent e) 
+		{
+			// TODO Auto-generated method stub
+			if (e.getSource() == btnGestionarInv) 
+			{
+				GestionVehiculos GE = new GestionVehiculos();
+				GE.setVisible(true);
+				dispose();
+			}
+			
+			else if (e.getSource() == btnGestionarSede)
+			{
+				GestionSedes GS = new GestionSedes();
+				GS.setVisible(true);
+				dispose();
+			}
+			
+			else if (e.getSource() == btnSalir)
+			{
+				VentanaPrincipal_1 VP = new VentanaPrincipal_1();
+				VP.setVisible(true);
+				dispose();
+			}
+			
+		}
 
- 
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
 		
-	}
-
-	
-	
-	
-	
-	
-	
-	
-	
+    };
 
     
+  
 
 
 }
+
